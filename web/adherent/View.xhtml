@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AdherentViewDlg" widgetVar="AdherentViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAdherentTitle}">
+            <h:form id="AdherentViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{adherentController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAdherentLabel_tablefonction}"/>
+                        <h:outputText value="#{adherentController.selected.tablefonction}" title="#{bundle.ViewAdherentTitle_tablefonction}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numGSM}"/>
+                        <h:outputText value="#{adherentController.selected.numGSM}" title="#{bundle.ViewAdherentTitle_numGSM}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_sessEnf}"/>
+                        <h:outputText value="#{adherentController.selected.sessEnf}" title="#{bundle.ViewAdherentTitle_sessEnf}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numGSMBis}"/>
+                        <h:outputText value="#{adherentController.selected.numGSMBis}" title="#{bundle.ViewAdherentTitle_numGSMBis}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_rib}"/>
+                        <h:outputText value="#{adherentController.selected.rib}" title="#{bundle.ViewAdherentTitle_rib}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_tablegrade}"/>
+                        <h:outputText value="#{adherentController.selected.tablegrade}" title="#{bundle.ViewAdherentTitle_tablegrade}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_tablesituation}"/>
+                        <h:outputText value="#{adherentController.selected.tablesituation}" title="#{bundle.ViewAdherentTitle_tablesituation}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_transportMinistere}"/>
+                        <h:outputText value="#{adherentController.selected.transportMinistere}" title="#{bundle.ViewAdherentTitle_transportMinistere}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_emailBis}"/>
+                        <h:outputText value="#{adherentController.selected.emailBis}" title="#{bundle.ViewAdherentTitle_emailBis}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_dateRappel}"/>
+                        <h:outputText value="#{adherentController.selected.dateRappel}" title="#{bundle.ViewAdherentTitle_dateRappel}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_observations}"/>
+                        <h:outputText value="#{adherentController.selected.observations}" title="#{bundle.ViewAdherentTitle_observations}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_banque}"/>
+                        <h:outputText value="#{adherentController.selected.banque}" title="#{bundle.ViewAdherentTitle_banque}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_tableville}"/>
+                        <h:outputText value="#{adherentController.selected.tableville}" title="#{bundle.ViewAdherentTitle_tableville}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numImmatriculationCNOPS}"/>
+                        <h:outputText value="#{adherentController.selected.numImmatriculationCNOPS}" title="#{bundle.ViewAdherentTitle_numImmatriculationCNOPS}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_tablecategorie}"/>
+                        <h:outputText value="#{adherentController.selected.tablecategorie}" title="#{bundle.ViewAdherentTitle_tablecategorie}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numTelephone}"/>
+                        <h:outputText value="#{adherentController.selected.numTelephone}" title="#{bundle.ViewAdherentTitle_numTelephone}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_email}"/>
+                        <h:outputText value="#{adherentController.selected.email}" title="#{bundle.ViewAdherentTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numDRPP}"/>
+                        <h:outputText value="#{adherentController.selected.numDRPP}" title="#{bundle.ViewAdherentTitle_numDRPP}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_valider}"/>
+                        <h:outputText value="#{adherentController.selected.valider}" title="#{bundle.ViewAdherentTitle_valider}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numImmatriculationCNSS}"/>
+                        <h:outputText value="#{adherentController.selected.numImmatriculationCNSS}" title="#{bundle.ViewAdherentTitle_numImmatriculationCNSS}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numAffiliationCNOPS}"/>
+                        <h:outputText value="#{adherentController.selected.numAffiliationCNOPS}" title="#{bundle.ViewAdherentTitle_numAffiliationCNOPS}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numPosteTelephonique}"/>
+                        <h:outputText value="#{adherentController.selected.numPosteTelephonique}" title="#{bundle.ViewAdherentTitle_numPosteTelephonique}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_transportNavette}"/>
+                        <h:outputText value="#{adherentController.selected.transportNavette}" title="#{bundle.ViewAdherentTitle_transportNavette}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_prestation}"/>
+                        <h:outputText value="#{adherentController.selected.prestation}" title="#{bundle.ViewAdherentTitle_prestation}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_conjoint}"/>
+                        <h:outputText value="#{adherentController.selected.conjoint}" title="#{bundle.ViewAdherentTitle_conjoint}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_cantine}"/>
+                        <h:outputText value="#{adherentController.selected.cantine}" title="#{bundle.ViewAdherentTitle_cantine}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numAdherent}"/>
+                        <h:outputText value="#{adherentController.selected.numAdherent}" title="#{bundle.ViewAdherentTitle_numAdherent}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_doti}"/>
+                        <h:outputText value="#{adherentController.selected.doti}" title="#{bundle.ViewAdherentTitle_doti}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_tableposte}"/>
+                        <h:outputText value="#{adherentController.selected.tableposte}" title="#{bundle.ViewAdherentTitle_tableposte}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_adresse}"/>
+                        <h:outputText value="#{adherentController.selected.adresse}" title="#{bundle.ViewAdherentTitle_adresse}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_tableechelle}"/>
+                        <h:outputText value="#{adherentController.selected.tableechelle}" title="#{bundle.ViewAdherentTitle_tableechelle}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numAffiliationCNSS}"/>
+                        <h:outputText value="#{adherentController.selected.numAffiliationCNSS}" title="#{bundle.ViewAdherentTitle_numAffiliationCNSS}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_llieu}"/>
+                        <h:outputText value="#{adherentController.selected.llieu}" title="#{bundle.ViewAdherentTitle_llieu}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_dateCreation}"/>
+                        <h:outputText value="#{adherentController.selected.dateCreation}" title="#{bundle.ViewAdherentTitle_dateCreation}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_dateNaissance}"/>
+                        <h:outputText value="#{adherentController.selected.dateNaissance}" title="#{bundle.ViewAdherentTitle_dateNaissance}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_idPersonne}"/>
+                        <h:outputText value="#{adherentController.selected.idPersonne}" title="#{bundle.ViewAdherentTitle_idPersonne}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_nomArabe}"/>
+                        <h:outputText value="#{adherentController.selected.nomArabe}" title="#{bundle.ViewAdherentTitle_nomArabe}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_photo}"/>
+                        <h:outputText value="#{adherentController.selected.photo}" title="#{bundle.ViewAdherentTitle_photo}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_prenomArabe}"/>
+                        <h:outputText value="#{adherentController.selected.prenomArabe}" title="#{bundle.ViewAdherentTitle_prenomArabe}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_numCIN}"/>
+                        <h:outputText value="#{adherentController.selected.numCIN}" title="#{bundle.ViewAdherentTitle_numCIN}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_sexe}"/>
+                        <h:outputText value="#{adherentController.selected.sexe}" title="#{bundle.ViewAdherentTitle_sexe}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_nom}"/>
+                        <h:outputText value="#{adherentController.selected.nom}" title="#{bundle.ViewAdherentTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewAdherentLabel_prenom}"/>
+                        <h:outputText value="#{adherentController.selected.prenom}" title="#{bundle.ViewAdherentTitle_prenom}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AdherentViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,14 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="DEFAULT_PU" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/aos</jta-data-source>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.release_mode" value="after_transaction"/>
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+            <property name="current_session_context_class" value="thread"/>
+            <property name="hibernate.event.merge.entity_copy_observer" value="allow"/>
+        </properties>
+    </persistence-unit>
+</persistence>

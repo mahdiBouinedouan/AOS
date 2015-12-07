@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EnfantCreateDlg" widgetVar="EnfantCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateEnfantTitle}">
+            <h:form id="EnfantCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{enfantController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_scolarise}" for="scolarise" />
+                        <p:inputText id="scolarise" value="#{enfantController.selected.scolarise}" title="#{bundle.CreateEnfantTitle_scolarise}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_scolarite}" for="scolarite" />
+                        <p:selectOneMenu id="scolarite" value="#{enfantController.selected.scolarite}" >
+                            <f:selectItems value="#{scolariteController.itemsAvailableSelectOne}"
+                                           var="scolariteItem"
+                                           itemValue="#{scolariteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_adherent}" for="adherent" />
+                        <p:selectOneMenu id="adherent" value="#{enfantController.selected.adherent}" >
+                            <f:selectItems value="#{adherentController.itemsAvailableSelectOne}"
+                                           var="adherentItem"
+                                           itemValue="#{adherentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_niveauEtude}" for="niveauEtude" />
+                        <p:inputTextarea rows="4" cols="30" id="niveauEtude" value="#{enfantController.selected.niveauEtude}" title="#{bundle.CreateEnfantTitle_niveauEtude}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_fraisScolariteMensuelle}" for="fraisScolariteMensuelle" />
+                        <p:inputText id="fraisScolariteMensuelle" value="#{enfantController.selected.fraisScolariteMensuelle}" title="#{bundle.CreateEnfantTitle_fraisScolariteMensuelle}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_observations}" for="observations" />
+                        <p:inputTextarea rows="4" cols="30" id="observations" value="#{enfantController.selected.observations}" title="#{bundle.CreateEnfantTitle_observations}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_IDEtablissement}" for="IDEtablissement" />
+                        <p:inputText id="IDEtablissement" value="#{enfantController.selected.IDEtablissement}" title="#{bundle.CreateEnfantTitle_IDEtablissement}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_cycle}" for="cycle" />
+                        <p:selectOneMenu id="cycle" value="#{enfantController.selected.cycle}" >
+                            <f:selectItems value="#{cycleController.itemsAvailableSelectOne}"
+                                           var="cycleItem"
+                                           itemValue="#{cycleItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_dateCreation}" for="dateCreation" />
+                        <p:calendar id="dateCreation" pattern="MM/dd/yyyy" value="#{enfantController.selected.dateCreation}" title="#{bundle.EditEnfantTitle_dateCreation}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_dateNaissance}" for="dateNaissance" />
+                        <p:calendar id="dateNaissance" pattern="MM/dd/yyyy" value="#{enfantController.selected.dateNaissance}" title="#{bundle.EditEnfantTitle_dateNaissance}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_idPersonne}" for="idPersonne" />
+                        <p:inputText id="idPersonne" value="#{enfantController.selected.idPersonne}" title="#{bundle.CreateEnfantTitle_idPersonne}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_nomArabe}" for="nomArabe" />
+                        <p:inputText id="nomArabe" value="#{enfantController.selected.nomArabe}" title="#{bundle.CreateEnfantTitle_nomArabe}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_photo}" for="photo" />
+                        <p:inputText id="photo" value="#{enfantController.selected.photo}" title="#{bundle.CreateEnfantTitle_photo}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_prenomArabe}" for="prenomArabe" />
+                        <p:inputText id="prenomArabe" value="#{enfantController.selected.prenomArabe}" title="#{bundle.CreateEnfantTitle_prenomArabe}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_numCIN}" for="numCIN" />
+                        <p:inputText id="numCIN" value="#{enfantController.selected.numCIN}" title="#{bundle.CreateEnfantTitle_numCIN}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_sexe}" for="sexe" />
+                        <p:inputText id="sexe" value="#{enfantController.selected.sexe}" title="#{bundle.CreateEnfantTitle_sexe}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{enfantController.selected.nom}" title="#{bundle.CreateEnfantTitle_nom}" />
+                        <p:outputLabel value="#{bundle.CreateEnfantLabel_prenom}" for="prenom" />
+                        <p:inputText id="prenom" value="#{enfantController.selected.prenom}" title="#{bundle.CreateEnfantTitle_prenom}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{enfantController.create}" value="#{bundle.Save}" update="display,:EnfantListForm:datalist,:growl" oncomplete="handleSubmit(args,'EnfantCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="EnfantCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

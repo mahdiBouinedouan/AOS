@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ScolariteViewDlg" widgetVar="ScolariteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewScolariteTitle}">
+            <h:form id="ScolariteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{scolariteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewScolariteLabel_reference}"/>
+                        <h:outputText value="#{scolariteController.selected.reference}" title="#{bundle.ViewScolariteTitle_reference}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_IDFScolarite}"/>
+                        <h:outputText value="#{scolariteController.selected.IDFScolarite}" title="#{bundle.ViewScolariteTitle_IDFScolarite}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_typedepense}"/>
+                        <h:outputText value="#{scolariteController.selected.typedepense}" title="#{bundle.ViewScolariteTitle_typedepense}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_dateCreation}"/>
+                        <h:outputText value="#{scolariteController.selected.dateCreation}" title="#{bundle.ViewScolariteTitle_dateCreation}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_IDDepense}"/>
+                        <h:outputText value="#{scolariteController.selected.IDDepense}" title="#{bundle.ViewScolariteTitle_IDDepense}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_dateDebut}"/>
+                        <h:outputText value="#{scolariteController.selected.dateDebut}" title="#{bundle.ViewScolariteTitle_dateDebut}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_montant}"/>
+                        <h:outputText value="#{scolariteController.selected.montant}" title="#{bundle.ViewScolariteTitle_montant}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_etablissement}"/>
+                        <h:outputText value="#{scolariteController.selected.etablissement}" title="#{bundle.ViewScolariteTitle_etablissement}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_dateFin}"/>
+                        <h:outputText value="#{scolariteController.selected.dateFin}" title="#{bundle.ViewScolariteTitle_dateFin}"/>
+                        <h:outputText value="#{bundle.ViewScolariteLabel_tabletypescolarite}"/>
+                        <h:outputText value="#{scolariteController.selected.tabletypescolarite}" title="#{bundle.ViewScolariteTitle_tabletypescolarite}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ScolariteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

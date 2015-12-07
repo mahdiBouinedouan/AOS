@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ScolariteCreateDlg" widgetVar="ScolariteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateScolariteTitle}">
+            <h:form id="ScolariteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{scolariteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_reference}" for="reference" />
+                        <p:inputTextarea rows="4" cols="30" id="reference" value="#{scolariteController.selected.reference}" title="#{bundle.CreateScolariteTitle_reference}" required="true" requiredMessage="#{bundle.CreateScolariteRequiredMessage_reference}"/>
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_IDFScolarite}" for="IDFScolarite" />
+                        <p:inputText id="IDFScolarite" value="#{scolariteController.selected.IDFScolarite}" title="#{bundle.CreateScolariteTitle_IDFScolarite}" required="true" requiredMessage="#{bundle.CreateScolariteRequiredMessage_IDFScolarite}"/>
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_typedepense}" for="typedepense" />
+                        <p:selectOneMenu id="typedepense" value="#{scolariteController.selected.typedepense}" >
+                            <f:selectItems value="#{typedepenseController.itemsAvailableSelectOne}"
+                                           var="typedepenseItem"
+                                           itemValue="#{typedepenseItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_dateCreation}" for="dateCreation" />
+                        <p:inputText id="dateCreation" value="#{scolariteController.selected.dateCreation}" title="#{bundle.CreateScolariteTitle_dateCreation}" required="true" requiredMessage="#{bundle.CreateScolariteRequiredMessage_dateCreation}"/>
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_IDDepense}" for="IDDepense" />
+                        <p:inputText id="IDDepense" value="#{scolariteController.selected.IDDepense}" title="#{bundle.CreateScolariteTitle_IDDepense}" />
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_dateDebut}" for="dateDebut" />
+                        <p:inputText id="dateDebut" value="#{scolariteController.selected.dateDebut}" title="#{bundle.CreateScolariteTitle_dateDebut}" required="true" requiredMessage="#{bundle.CreateScolariteRequiredMessage_dateDebut}"/>
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_montant}" for="montant" />
+                        <p:inputText id="montant" value="#{scolariteController.selected.montant}" title="#{bundle.CreateScolariteTitle_montant}" required="true" requiredMessage="#{bundle.CreateScolariteRequiredMessage_montant}"/>
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_etablissement}" for="etablissement" />
+                        <p:inputText id="etablissement" value="#{scolariteController.selected.etablissement}" title="#{bundle.CreateScolariteTitle_etablissement}" />
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_dateFin}" for="dateFin" />
+                        <p:inputText id="dateFin" value="#{scolariteController.selected.dateFin}" title="#{bundle.CreateScolariteTitle_dateFin}" required="true" requiredMessage="#{bundle.CreateScolariteRequiredMessage_dateFin}"/>
+                        <p:outputLabel value="#{bundle.CreateScolariteLabel_tabletypescolarite}" for="tabletypescolarite" />
+                        <p:selectOneMenu id="tabletypescolarite" value="#{scolariteController.selected.tabletypescolarite}" >
+                            <f:selectItems value="#{typescolariteController.itemsAvailableSelectOne}"
+                                           var="tabletypescolariteItem"
+                                           itemValue="#{tabletypescolariteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{scolariteController.create}" value="#{bundle.Save}" update="display,:ScolariteListForm:datalist,:growl" oncomplete="handleSubmit(args,'ScolariteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ScolariteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

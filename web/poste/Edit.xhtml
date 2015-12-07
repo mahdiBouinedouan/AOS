@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PosteEditDlg" widgetVar="PosteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPosteTitle}">
+            <h:form id="PosteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{posteController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPosteLabel_typePoste}" for="typePoste" />
+                        <p:inputTextarea rows="4" cols="30" id="typePoste" value="#{posteController.selected.typePoste}" title="#{bundle.EditPosteTitle_typePoste}" />
+                        <p:outputLabel value="#{bundle.EditPosteLabel_IDPoste}" for="IDPoste" />
+                        <p:inputText id="IDPoste" value="#{posteController.selected.IDPoste}" title="#{bundle.EditPosteTitle_IDPoste}" required="true" requiredMessage="#{bundle.EditPosteRequiredMessage_IDPoste}"/>
+                        <p:outputLabel value="#{bundle.EditPosteLabel_poste}" for="poste" />
+                        <p:inputTextarea rows="4" cols="30" id="poste" value="#{posteController.selected.poste}" title="#{bundle.EditPosteTitle_poste}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{posteController.update}" value="#{bundle.Save}" update="display,:PosteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PosteEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PosteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

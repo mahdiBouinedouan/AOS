@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EnfantViewDlg" widgetVar="EnfantViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEnfantTitle}">
+            <h:form id="EnfantViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{enfantController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEnfantLabel_scolarise}"/>
+                        <h:outputText value="#{enfantController.selected.scolarise}" title="#{bundle.ViewEnfantTitle_scolarise}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_scolarite}"/>
+                        <h:outputText value="#{enfantController.selected.scolarite}" title="#{bundle.ViewEnfantTitle_scolarite}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_adherent}"/>
+                        <h:outputText value="#{enfantController.selected.adherent}" title="#{bundle.ViewEnfantTitle_adherent}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_niveauEtude}"/>
+                        <h:outputText value="#{enfantController.selected.niveauEtude}" title="#{bundle.ViewEnfantTitle_niveauEtude}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_fraisScolariteMensuelle}"/>
+                        <h:outputText value="#{enfantController.selected.fraisScolariteMensuelle}" title="#{bundle.ViewEnfantTitle_fraisScolariteMensuelle}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_observations}"/>
+                        <h:outputText value="#{enfantController.selected.observations}" title="#{bundle.ViewEnfantTitle_observations}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_IDEtablissement}"/>
+                        <h:outputText value="#{enfantController.selected.IDEtablissement}" title="#{bundle.ViewEnfantTitle_IDEtablissement}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_cycle}"/>
+                        <h:outputText value="#{enfantController.selected.cycle}" title="#{bundle.ViewEnfantTitle_cycle}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_dateCreation}"/>
+                        <h:outputText value="#{enfantController.selected.dateCreation}" title="#{bundle.ViewEnfantTitle_dateCreation}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_dateNaissance}"/>
+                        <h:outputText value="#{enfantController.selected.dateNaissance}" title="#{bundle.ViewEnfantTitle_dateNaissance}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_idPersonne}"/>
+                        <h:outputText value="#{enfantController.selected.idPersonne}" title="#{bundle.ViewEnfantTitle_idPersonne}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_nomArabe}"/>
+                        <h:outputText value="#{enfantController.selected.nomArabe}" title="#{bundle.ViewEnfantTitle_nomArabe}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_photo}"/>
+                        <h:outputText value="#{enfantController.selected.photo}" title="#{bundle.ViewEnfantTitle_photo}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_prenomArabe}"/>
+                        <h:outputText value="#{enfantController.selected.prenomArabe}" title="#{bundle.ViewEnfantTitle_prenomArabe}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_numCIN}"/>
+                        <h:outputText value="#{enfantController.selected.numCIN}" title="#{bundle.ViewEnfantTitle_numCIN}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_sexe}"/>
+                        <h:outputText value="#{enfantController.selected.sexe}" title="#{bundle.ViewEnfantTitle_sexe}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_nom}"/>
+                        <h:outputText value="#{enfantController.selected.nom}" title="#{bundle.ViewEnfantTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewEnfantLabel_prenom}"/>
+                        <h:outputText value="#{enfantController.selected.prenom}" title="#{bundle.ViewEnfantTitle_prenom}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EnfantViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DepenseCreateDlg" widgetVar="DepenseCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDepenseTitle}">
+            <h:form id="DepenseCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{depenseController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDepenseLabel_reference}" for="reference" />
+                        <p:inputTextarea rows="4" cols="30" id="reference" value="#{depenseController.selected.reference}" title="#{bundle.CreateDepenseTitle_reference}" required="true" requiredMessage="#{bundle.CreateDepenseRequiredMessage_reference}"/>
+                        <p:outputLabel value="#{bundle.CreateDepenseLabel_typedepense}" for="typedepense" />
+                        <p:selectOneMenu id="typedepense" value="#{depenseController.selected.typedepense}" >
+                            <f:selectItems value="#{typedepenseController.itemsAvailableSelectOne}"
+                                           var="typedepenseItem"
+                                           itemValue="#{typedepenseItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateDepenseLabel_dateCreation}" for="dateCreation" />
+                        <p:inputText id="dateCreation" value="#{depenseController.selected.dateCreation}" title="#{bundle.CreateDepenseTitle_dateCreation}" required="true" requiredMessage="#{bundle.CreateDepenseRequiredMessage_dateCreation}"/>
+                        <p:outputLabel value="#{bundle.CreateDepenseLabel_IDDepense}" for="IDDepense" />
+                        <p:inputText id="IDDepense" value="#{depenseController.selected.IDDepense}" title="#{bundle.CreateDepenseTitle_IDDepense}" required="true" requiredMessage="#{bundle.CreateDepenseRequiredMessage_IDDepense}"/>
+                        <p:outputLabel value="#{bundle.CreateDepenseLabel_emailEnvoye}" for="emailEnvoye" />
+                        <p:inputText id="emailEnvoye" value="#{depenseController.selected.emailEnvoye}" title="#{bundle.CreateDepenseTitle_emailEnvoye}" required="true" requiredMessage="#{bundle.CreateDepenseRequiredMessage_emailEnvoye}"/>
+                        <p:outputLabel value="#{bundle.CreateDepenseLabel_montant}" for="montant" />
+                        <p:inputText id="montant" value="#{depenseController.selected.montant}" title="#{bundle.CreateDepenseTitle_montant}" required="true" requiredMessage="#{bundle.CreateDepenseRequiredMessage_montant}"/>
+                        <p:outputLabel value="#{bundle.CreateDepenseLabel_rib}" for="rib" />
+                        <p:inputTextarea rows="4" cols="30" id="rib" value="#{depenseController.selected.rib}" title="#{bundle.CreateDepenseTitle_rib}" required="true" requiredMessage="#{bundle.CreateDepenseRequiredMessage_rib}"/>
+                        <p:outputLabel value="#{bundle.CreateDepenseLabel_ok}" for="ok" />
+                        <p:inputText id="ok" value="#{depenseController.selected.ok}" title="#{bundle.CreateDepenseTitle_ok}" required="true" requiredMessage="#{bundle.CreateDepenseRequiredMessage_ok}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{depenseController.create}" value="#{bundle.Save}" update="display,:DepenseListForm:datalist,:growl" oncomplete="handleSubmit(args,'DepenseCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DepenseCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

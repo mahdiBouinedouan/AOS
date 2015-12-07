@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ConjointViewDlg" widgetVar="ConjointViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewConjointTitle}">
+            <h:form id="ConjointViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{conjointController.selected != null}">
+                        <h:outputText value="#{bundle.ViewConjointLabel_employeurConjoint}"/>
+                        <h:outputText value="#{conjointController.selected.employeurConjoint}" title="#{bundle.ViewConjointTitle_employeurConjoint}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_adherent}"/>
+                        <h:outputText value="#{conjointController.selected.adherent}" title="#{bundle.ViewConjointTitle_adherent}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_fonctionConjoint}"/>
+                        <h:outputText value="#{conjointController.selected.fonctionConjoint}" title="#{bundle.ViewConjointTitle_fonctionConjoint}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_dateCreation}"/>
+                        <h:outputText value="#{conjointController.selected.dateCreation}" title="#{bundle.ViewConjointTitle_dateCreation}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewConjointLabel_dateNaissance}"/>
+                        <h:outputText value="#{conjointController.selected.dateNaissance}" title="#{bundle.ViewConjointTitle_dateNaissance}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewConjointLabel_idPersonne}"/>
+                        <h:outputText value="#{conjointController.selected.idPersonne}" title="#{bundle.ViewConjointTitle_idPersonne}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_nomArabe}"/>
+                        <h:outputText value="#{conjointController.selected.nomArabe}" title="#{bundle.ViewConjointTitle_nomArabe}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_photo}"/>
+                        <h:outputText value="#{conjointController.selected.photo}" title="#{bundle.ViewConjointTitle_photo}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_prenomArabe}"/>
+                        <h:outputText value="#{conjointController.selected.prenomArabe}" title="#{bundle.ViewConjointTitle_prenomArabe}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_numCIN}"/>
+                        <h:outputText value="#{conjointController.selected.numCIN}" title="#{bundle.ViewConjointTitle_numCIN}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_sexe}"/>
+                        <h:outputText value="#{conjointController.selected.sexe}" title="#{bundle.ViewConjointTitle_sexe}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_nom}"/>
+                        <h:outputText value="#{conjointController.selected.nom}" title="#{bundle.ViewConjointTitle_nom}"/>
+                        <h:outputText value="#{bundle.ViewConjointLabel_prenom}"/>
+                        <h:outputText value="#{conjointController.selected.prenom}" title="#{bundle.ViewConjointTitle_prenom}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ConjointViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

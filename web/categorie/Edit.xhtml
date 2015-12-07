@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CategorieEditDlg" widgetVar="CategorieEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditCategorieTitle}">
+            <h:form id="CategorieEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{categorieController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditCategorieLabel_categorie}" for="categorie" />
+                        <p:inputTextarea rows="4" cols="30" id="categorie" value="#{categorieController.selected.categorie}" title="#{bundle.EditCategorieTitle_categorie}" />
+                        <p:outputLabel value="#{bundle.EditCategorieLabel_mapfs}" for="mapfs" />
+                        <p:inputText id="mapfs" value="#{categorieController.selected.mapfs}" title="#{bundle.EditCategorieTitle_mapfs}" />
+                        <p:outputLabel value="#{bundle.EditCategorieLabel_IDCategorie}" for="IDCategorie" />
+                        <p:inputText id="IDCategorie" value="#{categorieController.selected.IDCategorie}" title="#{bundle.EditCategorieTitle_IDCategorie}" required="true" requiredMessage="#{bundle.EditCategorieRequiredMessage_IDCategorie}"/>
+                        <p:outputLabel value="#{bundle.EditCategorieLabel_maa}" for="maa" />
+                        <p:inputText id="maa" value="#{categorieController.selected.maa}" title="#{bundle.EditCategorieTitle_maa}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{categorieController.update}" value="#{bundle.Save}" update="display,:CategorieListForm:datalist,:growl" oncomplete="handleSubmit(args, 'CategorieEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CategorieEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

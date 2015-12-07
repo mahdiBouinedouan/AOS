@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEnfantTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="EnfantListForm">
+                <p:panel header="#{bundle.ListEnfantTitle}">
+                    <p:dataTable id="datalist" value="#{enfantController.items}" var="item"
+                                 selectionMode="single" selection="#{enfantController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idPersonne}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_scolarise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.scolarise}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_scolarite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.scolarite}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_adherent}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adherent}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_niveauEtude}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.niveauEtude}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_fraisScolariteMensuelle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fraisScolariteMensuelle}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_observations}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observations}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_IDEtablissement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.IDEtablissement}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_cycle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cycle}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_dateCreation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateCreation}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_dateNaissance}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateNaissance}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_idPersonne}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPersonne}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_nomArabe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomArabe}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_photo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.photo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_prenomArabe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenomArabe}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_numCIN}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numCIN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_sexe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sexe}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEnfantTitle_prenom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenom}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{enfantController.prepareCreate}" update=":EnfantCreateForm" oncomplete="PF('EnfantCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":EnfantViewForm" oncomplete="PF('EnfantViewDialog').show()" disabled="#{empty enfantController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":EnfantEditForm" oncomplete="PF('EnfantEditDialog').show()" disabled="#{empty enfantController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{enfantController.destroy}" update=":growl,datalist" disabled="#{empty enfantController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

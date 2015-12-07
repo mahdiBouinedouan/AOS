@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PrestationViewDlg" widgetVar="PrestationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPrestationTitle}">
+            <h:form id="PrestationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{prestationController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPrestationLabel_typedepense}"/>
+                        <h:outputText value="#{prestationController.selected.typedepense}" title="#{bundle.ViewPrestationTitle_typedepense}"/>
+                        <h:outputText value="#{bundle.ViewPrestationLabel_dateCreation}"/>
+                        <h:outputText value="#{prestationController.selected.dateCreation}" title="#{bundle.ViewPrestationTitle_dateCreation}"/>
+                        <h:outputText value="#{bundle.ViewPrestationLabel_IDPrestation}"/>
+                        <h:outputText value="#{prestationController.selected.IDPrestation}" title="#{bundle.ViewPrestationTitle_IDPrestation}"/>
+                        <h:outputText value="#{bundle.ViewPrestationLabel_IDEchelle}"/>
+                        <h:outputText value="#{prestationController.selected.IDEchelle}" title="#{bundle.ViewPrestationTitle_IDEchelle}"/>
+                        <h:outputText value="#{bundle.ViewPrestationLabel_IDLieu}"/>
+                        <h:outputText value="#{prestationController.selected.IDLieu}" title="#{bundle.ViewPrestationTitle_IDLieu}"/>
+                        <h:outputText value="#{bundle.ViewPrestationLabel_dateMandatement}"/>
+                        <h:outputText value="#{prestationController.selected.dateMandatement}" title="#{bundle.ViewPrestationTitle_dateMandatement}"/>
+                        <h:outputText value="#{bundle.ViewPrestationLabel_IDAnnee}"/>
+                        <h:outputText value="#{prestationController.selected.IDAnnee}" title="#{bundle.ViewPrestationTitle_IDAnnee}"/>
+                        <h:outputText value="#{bundle.ViewPrestationLabel_active}"/>
+                        <h:outputText value="#{prestationController.selected.active}" title="#{bundle.ViewPrestationTitle_active}"/>
+                        <h:outputText value="#{bundle.ViewPrestationLabel_IDMontant}"/>
+                        <h:outputText value="#{prestationController.selected.IDMontant}" title="#{bundle.ViewPrestationTitle_IDMontant}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PrestationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

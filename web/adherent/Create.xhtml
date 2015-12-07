@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AdherentCreateDlg" widgetVar="AdherentCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAdherentTitle}">
+            <h:form id="AdherentCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{adherentController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_tablefonction}" for="tablefonction" />
+                        <p:selectOneMenu id="tablefonction" value="#{adherentController.selected.tablefonction}" >
+                            <f:selectItems value="#{fonctionController.itemsAvailableSelectOne}"
+                                           var="tablefonctionItem"
+                                           itemValue="#{tablefonctionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numGSM}" for="numGSM" />
+                        <p:inputTextarea rows="4" cols="30" id="numGSM" value="#{adherentController.selected.numGSM}" title="#{bundle.CreateAdherentTitle_numGSM}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_sessEnf}" for="sessEnf" />
+                        <p:inputTextarea rows="4" cols="30" id="sessEnf" value="#{adherentController.selected.sessEnf}" title="#{bundle.CreateAdherentTitle_sessEnf}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numGSMBis}" for="numGSMBis" />
+                        <p:inputTextarea rows="4" cols="30" id="numGSMBis" value="#{adherentController.selected.numGSMBis}" title="#{bundle.CreateAdherentTitle_numGSMBis}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_rib}" for="rib" />
+                        <p:inputTextarea rows="4" cols="30" id="rib" value="#{adherentController.selected.rib}" title="#{bundle.CreateAdherentTitle_rib}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_tablegrade}" for="tablegrade" />
+                        <p:selectOneMenu id="tablegrade" value="#{adherentController.selected.tablegrade}" >
+                            <f:selectItems value="#{gradeController.itemsAvailableSelectOne}"
+                                           var="tablegradeItem"
+                                           itemValue="#{tablegradeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_tablesituation}" for="tablesituation" />
+                        <p:selectOneMenu id="tablesituation" value="#{adherentController.selected.tablesituation}" >
+                            <f:selectItems value="#{situationController.itemsAvailableSelectOne}"
+                                           var="tablesituationItem"
+                                           itemValue="#{tablesituationItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_transportMinistere}" for="transportMinistere" />
+                        <p:inputText id="transportMinistere" value="#{adherentController.selected.transportMinistere}" title="#{bundle.CreateAdherentTitle_transportMinistere}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_emailBis}" for="emailBis" />
+                        <p:inputTextarea rows="4" cols="30" id="emailBis" value="#{adherentController.selected.emailBis}" title="#{bundle.CreateAdherentTitle_emailBis}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_dateRappel}" for="dateRappel" />
+                        <p:inputText id="dateRappel" value="#{adherentController.selected.dateRappel}" title="#{bundle.CreateAdherentTitle_dateRappel}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_observations}" for="observations" />
+                        <p:inputTextarea rows="4" cols="30" id="observations" value="#{adherentController.selected.observations}" title="#{bundle.CreateAdherentTitle_observations}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_banque}" for="banque" />
+                        <p:selectOneMenu id="banque" value="#{adherentController.selected.banque}" >
+                            <f:selectItems value="#{banqueController.itemsAvailableSelectOne}"
+                                           var="banqueItem"
+                                           itemValue="#{banqueItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_tableville}" for="tableville" />
+                        <p:selectOneMenu id="tableville" value="#{adherentController.selected.tableville}" >
+                            <f:selectItems value="#{villeController.itemsAvailableSelectOne}"
+                                           var="tablevilleItem"
+                                           itemValue="#{tablevilleItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numImmatriculationCNOPS}" for="numImmatriculationCNOPS" />
+                        <p:inputTextarea rows="4" cols="30" id="numImmatriculationCNOPS" value="#{adherentController.selected.numImmatriculationCNOPS}" title="#{bundle.CreateAdherentTitle_numImmatriculationCNOPS}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_tablecategorie}" for="tablecategorie" />
+                        <p:selectOneMenu id="tablecategorie" value="#{adherentController.selected.tablecategorie}" >
+                            <f:selectItems value="#{categorieController.itemsAvailableSelectOne}"
+                                           var="tablecategorieItem"
+                                           itemValue="#{tablecategorieItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numTelephone}" for="numTelephone" />
+                        <p:inputTextarea rows="4" cols="30" id="numTelephone" value="#{adherentController.selected.numTelephone}" title="#{bundle.CreateAdherentTitle_numTelephone}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_email}" for="email" />
+                        <p:inputTextarea rows="4" cols="30" id="email" value="#{adherentController.selected.email}" title="#{bundle.CreateAdherentTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numDRPP}" for="numDRPP" />
+                        <p:inputTextarea rows="4" cols="30" id="numDRPP" value="#{adherentController.selected.numDRPP}" title="#{bundle.CreateAdherentTitle_numDRPP}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_valider}" for="valider" />
+                        <p:inputTextarea rows="4" cols="30" id="valider" value="#{adherentController.selected.valider}" title="#{bundle.CreateAdherentTitle_valider}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numImmatriculationCNSS}" for="numImmatriculationCNSS" />
+                        <p:inputTextarea rows="4" cols="30" id="numImmatriculationCNSS" value="#{adherentController.selected.numImmatriculationCNSS}" title="#{bundle.CreateAdherentTitle_numImmatriculationCNSS}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numAffiliationCNOPS}" for="numAffiliationCNOPS" />
+                        <p:inputTextarea rows="4" cols="30" id="numAffiliationCNOPS" value="#{adherentController.selected.numAffiliationCNOPS}" title="#{bundle.CreateAdherentTitle_numAffiliationCNOPS}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numPosteTelephonique}" for="numPosteTelephonique" />
+                        <p:inputTextarea rows="4" cols="30" id="numPosteTelephonique" value="#{adherentController.selected.numPosteTelephonique}" title="#{bundle.CreateAdherentTitle_numPosteTelephonique}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_transportNavette}" for="transportNavette" />
+                        <p:inputText id="transportNavette" value="#{adherentController.selected.transportNavette}" title="#{bundle.CreateAdherentTitle_transportNavette}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_prestation}" for="prestation" />
+                        <p:selectOneMenu id="prestation" value="#{adherentController.selected.prestation}" >
+                            <f:selectItems value="#{prestationController.itemsAvailableSelectOne}"
+                                           var="prestationItem"
+                                           itemValue="#{prestationItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_conjoint}" for="conjoint" />
+                        <p:selectOneMenu id="conjoint" value="#{adherentController.selected.conjoint}" >
+                            <f:selectItems value="#{conjointController.itemsAvailableSelectOne}"
+                                           var="conjointItem"
+                                           itemValue="#{conjointItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_cantine}" for="cantine" />
+                        <p:inputText id="cantine" value="#{adherentController.selected.cantine}" title="#{bundle.CreateAdherentTitle_cantine}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numAdherent}" for="numAdherent" />
+                        <p:inputTextarea rows="4" cols="30" id="numAdherent" value="#{adherentController.selected.numAdherent}" title="#{bundle.CreateAdherentTitle_numAdherent}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_doti}" for="doti" />
+                        <p:inputText id="doti" value="#{adherentController.selected.doti}" title="#{bundle.CreateAdherentTitle_doti}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_tableposte}" for="tableposte" />
+                        <p:selectOneMenu id="tableposte" value="#{adherentController.selected.tableposte}" >
+                            <f:selectItems value="#{posteController.itemsAvailableSelectOne}"
+                                           var="tableposteItem"
+                                           itemValue="#{tableposteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_adresse}" for="adresse" />
+                        <p:inputTextarea rows="4" cols="30" id="adresse" value="#{adherentController.selected.adresse}" title="#{bundle.CreateAdherentTitle_adresse}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_tableechelle}" for="tableechelle" />
+                        <p:selectOneMenu id="tableechelle" value="#{adherentController.selected.tableechelle}" >
+                            <f:selectItems value="#{echelleController.itemsAvailableSelectOne}"
+                                           var="tableechelleItem"
+                                           itemValue="#{tableechelleItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numAffiliationCNSS}" for="numAffiliationCNSS" />
+                        <p:inputTextarea rows="4" cols="30" id="numAffiliationCNSS" value="#{adherentController.selected.numAffiliationCNSS}" title="#{bundle.CreateAdherentTitle_numAffiliationCNSS}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_llieu}" for="llieu" />
+                        <p:selectOneMenu id="llieu" value="#{adherentController.selected.llieu}" >
+                            <f:selectItems value="#{llieuController.itemsAvailableSelectOne}"
+                                           var="llieuItem"
+                                           itemValue="#{llieuItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_dateCreation}" for="dateCreation" />
+                        <p:calendar id="dateCreation" pattern="MM/dd/yyyy" value="#{adherentController.selected.dateCreation}" title="#{bundle.EditAdherentTitle_dateCreation}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_dateNaissance}" for="dateNaissance" />
+                        <p:calendar id="dateNaissance" pattern="MM/dd/yyyy" value="#{adherentController.selected.dateNaissance}" title="#{bundle.EditAdherentTitle_dateNaissance}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_idPersonne}" for="idPersonne" />
+                        <p:inputText id="idPersonne" value="#{adherentController.selected.idPersonne}" title="#{bundle.CreateAdherentTitle_idPersonne}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_nomArabe}" for="nomArabe" />
+                        <p:inputText id="nomArabe" value="#{adherentController.selected.nomArabe}" title="#{bundle.CreateAdherentTitle_nomArabe}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_photo}" for="photo" />
+                        <p:inputText id="photo" value="#{adherentController.selected.photo}" title="#{bundle.CreateAdherentTitle_photo}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_prenomArabe}" for="prenomArabe" />
+                        <p:inputText id="prenomArabe" value="#{adherentController.selected.prenomArabe}" title="#{bundle.CreateAdherentTitle_prenomArabe}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_numCIN}" for="numCIN" />
+                        <p:inputText id="numCIN" value="#{adherentController.selected.numCIN}" title="#{bundle.CreateAdherentTitle_numCIN}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_sexe}" for="sexe" />
+                        <p:inputText id="sexe" value="#{adherentController.selected.sexe}" title="#{bundle.CreateAdherentTitle_sexe}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{adherentController.selected.nom}" title="#{bundle.CreateAdherentTitle_nom}" />
+                        <p:outputLabel value="#{bundle.CreateAdherentLabel_prenom}" for="prenom" />
+                        <p:inputText id="prenom" value="#{adherentController.selected.prenom}" title="#{bundle.CreateAdherentTitle_prenom}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{adherentController.create}" value="#{bundle.Save}" update="display,:AdherentListForm:datalist,:growl" oncomplete="handleSubmit(args,'AdherentCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AdherentCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

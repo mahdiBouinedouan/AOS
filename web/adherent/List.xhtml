@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAdherentTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="AdherentListForm">
+                <p:panel header="#{bundle.ListAdherentTitle}">
+                    <p:dataTable id="datalist" value="#{adherentController.items}" var="item"
+                                 selectionMode="single" selection="#{adherentController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idPersonne}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_tablefonction}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tablefonction}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numGSM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numGSM}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_sessEnf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sessEnf}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numGSMBis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numGSMBis}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_rib}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rib}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_tablegrade}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tablegrade}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_tablesituation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tablesituation}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_transportMinistere}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.transportMinistere}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_emailBis}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailBis}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_dateRappel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateRappel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_observations}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observations}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_banque}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.banque}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_tableville}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tableville}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numImmatriculationCNOPS}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numImmatriculationCNOPS}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_tablecategorie}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tablecategorie}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numTelephone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numTelephone}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numDRPP}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numDRPP}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_valider}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valider}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numImmatriculationCNSS}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numImmatriculationCNSS}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numAffiliationCNOPS}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numAffiliationCNOPS}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numPosteTelephonique}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numPosteTelephonique}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_transportNavette}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.transportNavette}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_prestation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prestation}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_conjoint}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.conjoint}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_cantine}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantine}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numAdherent}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numAdherent}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_doti}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.doti}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_tableposte}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tableposte}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_adresse}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adresse}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_tableechelle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tableechelle}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numAffiliationCNSS}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numAffiliationCNSS}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_llieu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.llieu}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_dateCreation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateCreation}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_dateNaissance}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateNaissance}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_idPersonne}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPersonne}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_nomArabe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomArabe}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_photo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.photo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_prenomArabe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenomArabe}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_numCIN}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numCIN}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_sexe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sexe}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAdherentTitle_prenom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenom}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{adherentController.prepareCreate}" update=":AdherentCreateForm" oncomplete="PF('AdherentCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":AdherentViewForm" oncomplete="PF('AdherentViewDialog').show()" disabled="#{empty adherentController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":AdherentEditForm" oncomplete="PF('AdherentEditDialog').show()" disabled="#{empty adherentController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{adherentController.destroy}" update=":growl,datalist" disabled="#{empty adherentController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

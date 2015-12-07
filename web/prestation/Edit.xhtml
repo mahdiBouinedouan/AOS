@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PrestationEditDlg" widgetVar="PrestationEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPrestationTitle}">
+            <h:form id="PrestationEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{prestationController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_typedepense}" for="typedepense" />
+                        <p:selectOneMenu id="typedepense" value="#{prestationController.selected.typedepense}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{typedepenseController.itemsAvailableSelectOne}"
+                                           var="typedepenseItem"
+                                           itemValue="#{typedepenseItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_dateCreation}" for="dateCreation" />
+                        <p:inputText id="dateCreation" value="#{prestationController.selected.dateCreation}" title="#{bundle.EditPrestationTitle_dateCreation}" required="true" requiredMessage="#{bundle.EditPrestationRequiredMessage_dateCreation}"/>
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_IDPrestation}" for="IDPrestation" />
+                        <p:inputText id="IDPrestation" value="#{prestationController.selected.IDPrestation}" title="#{bundle.EditPrestationTitle_IDPrestation}" required="true" requiredMessage="#{bundle.EditPrestationRequiredMessage_IDPrestation}"/>
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_IDEchelle}" for="IDEchelle" />
+                        <p:inputText id="IDEchelle" value="#{prestationController.selected.IDEchelle}" title="#{bundle.EditPrestationTitle_IDEchelle}" required="true" requiredMessage="#{bundle.EditPrestationRequiredMessage_IDEchelle}"/>
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_IDLieu}" for="IDLieu" />
+                        <p:inputText id="IDLieu" value="#{prestationController.selected.IDLieu}" title="#{bundle.EditPrestationTitle_IDLieu}" required="true" requiredMessage="#{bundle.EditPrestationRequiredMessage_IDLieu}"/>
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_dateMandatement}" for="dateMandatement" />
+                        <p:inputText id="dateMandatement" value="#{prestationController.selected.dateMandatement}" title="#{bundle.EditPrestationTitle_dateMandatement}" />
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_IDAnnee}" for="IDAnnee" />
+                        <p:inputText id="IDAnnee" value="#{prestationController.selected.IDAnnee}" title="#{bundle.EditPrestationTitle_IDAnnee}" required="true" requiredMessage="#{bundle.EditPrestationRequiredMessage_IDAnnee}"/>
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_active}" for="active" />
+                        <p:inputText id="active" value="#{prestationController.selected.active}" title="#{bundle.EditPrestationTitle_active}" required="true" requiredMessage="#{bundle.EditPrestationRequiredMessage_active}"/>
+                        <p:outputLabel value="#{bundle.EditPrestationLabel_IDMontant}" for="IDMontant" />
+                        <p:inputText id="IDMontant" value="#{prestationController.selected.IDMontant}" title="#{bundle.EditPrestationTitle_IDMontant}" required="true" requiredMessage="#{bundle.EditPrestationRequiredMessage_IDMontant}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{prestationController.update}" value="#{bundle.Save}" update="display,:PrestationListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PrestationEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PrestationEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

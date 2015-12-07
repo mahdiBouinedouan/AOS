@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ConjointEditDlg" widgetVar="ConjointEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditConjointTitle}">
+            <h:form id="ConjointEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{conjointController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditConjointLabel_employeurConjoint}" for="employeurConjoint" />
+                        <p:inputTextarea rows="4" cols="30" id="employeurConjoint" value="#{conjointController.selected.employeurConjoint}" title="#{bundle.EditConjointTitle_employeurConjoint}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_adherent}" for="adherent" />
+                        <p:selectOneMenu id="adherent" value="#{conjointController.selected.adherent}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{adherentController.itemsAvailableSelectOne}"
+                                           var="adherentItem"
+                                           itemValue="#{adherentItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditConjointLabel_fonctionConjoint}" for="fonctionConjoint" />
+                        <p:inputTextarea rows="4" cols="30" id="fonctionConjoint" value="#{conjointController.selected.fonctionConjoint}" title="#{bundle.EditConjointTitle_fonctionConjoint}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_dateCreation}" for="dateCreation" />
+                        <p:calendar id="dateCreation" pattern="MM/dd/yyyy" value="#{conjointController.selected.dateCreation}" title="#{bundle.EditConjointTitle_dateCreation}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditConjointLabel_dateNaissance}" for="dateNaissance" />
+                        <p:calendar id="dateNaissance" pattern="MM/dd/yyyy" value="#{conjointController.selected.dateNaissance}" title="#{bundle.EditConjointTitle_dateNaissance}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditConjointLabel_idPersonne}" for="idPersonne" />
+                        <p:inputText id="idPersonne" value="#{conjointController.selected.idPersonne}" title="#{bundle.EditConjointTitle_idPersonne}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_nomArabe}" for="nomArabe" />
+                        <p:inputText id="nomArabe" value="#{conjointController.selected.nomArabe}" title="#{bundle.EditConjointTitle_nomArabe}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_photo}" for="photo" />
+                        <p:inputText id="photo" value="#{conjointController.selected.photo}" title="#{bundle.EditConjointTitle_photo}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_prenomArabe}" for="prenomArabe" />
+                        <p:inputText id="prenomArabe" value="#{conjointController.selected.prenomArabe}" title="#{bundle.EditConjointTitle_prenomArabe}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_numCIN}" for="numCIN" />
+                        <p:inputText id="numCIN" value="#{conjointController.selected.numCIN}" title="#{bundle.EditConjointTitle_numCIN}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_sexe}" for="sexe" />
+                        <p:inputText id="sexe" value="#{conjointController.selected.sexe}" title="#{bundle.EditConjointTitle_sexe}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{conjointController.selected.nom}" title="#{bundle.EditConjointTitle_nom}" />
+                        <p:outputLabel value="#{bundle.EditConjointLabel_prenom}" for="prenom" />
+                        <p:inputText id="prenom" value="#{conjointController.selected.prenom}" title="#{bundle.EditConjointTitle_prenom}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{conjointController.update}" value="#{bundle.Save}" update="display,:ConjointListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ConjointEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ConjointEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

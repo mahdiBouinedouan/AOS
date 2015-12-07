@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings jaxb-support="false" id="_14488412049971" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:ns4="http://nbmodeler.java.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:package>entity</jpa:package>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Fonction" visibile="true" minimized="false" id="_14488412050034">
+        <jpa:attributes>
+            <jpa:id name="iDFonction" attribute-type="Integer" visibile="true" id="_144884120503133">
+                <jpa:column name="IDFonction" unique="false" nullable="false" insertable="true" updatable="true" table="tablefonction"/>
+            </jpa:id>
+            <jpa:basic name="fonction" optional="true" attribute-type="String" visibile="true" id="_144884120503234">
+                <jpa:column name="Fonction" unique="false" nullable="true" insertable="true" updatable="true" table="tablefonction" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="idCategorie" optional="true" attribute-type="Integer" visibile="true" id="_144884120503235">
+                <jpa:column name="idCategorie" unique="false" nullable="true" insertable="true" updatable="true" table="tablefonction"/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="tablefonction" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448845331449260" visibile="true" id="_1448845331460261"/>
+            <jpa:many-to-many name="categories" target-entity="Categorie" connected-entity-id="_144884120502519" connected-attribute-id="_144951054272647" visibile="true" id="_144951054271746">
+                <jpa:join-table/>
+            </jpa:many-to-many>
+        </jpa:attributes>
+        <jpa:table name="tablefonction"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Typedepense" visibile="true" minimized="false" id="_14488412050247">
+        <jpa:attributes>
+            <jpa:id name="iDTypeDepense" attribute-type="Integer" visibile="true" id="_144884120503243">
+                <jpa:column name="IDTypeDepense" unique="false" nullable="false" insertable="true" updatable="true" table="tabletypedepense"/>
+            </jpa:id>
+            <jpa:basic name="typeDepense" optional="false" attribute-type="String" visibile="true" id="_144884120503244">
+                <jpa:column name="TypeDepense" unique="false" nullable="false" insertable="true" updatable="true" table="tabletypedepense" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="depenses" target-entity="Depense" mapped-by="typedepense" collection-type="java.util.List" connected-entity-id="_144884120502524" connected-attribute-id="_1448917803216288" visibile="true" id="_1448917803217289"/>
+            <jpa:one-to-many name="prestations" target-entity="Prestation" mapped-by="typedepense" collection-type="java.util.List" connected-entity-id="_144884120502518" connected-attribute-id="_1448917835049290" visibile="true" id="_1448917835050291"/>
+            <jpa:one-to-many name="scolarites" target-entity="Scolarite" mapped-by="typedepense" collection-type="java.util.List" connected-entity-id="_144884120502527" connected-attribute-id="_1448927868401294" visibile="true" id="_1448927868404295"/>
+        </jpa:attributes>
+        <jpa:table name="tabletypedepense"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Grade" visibile="true" minimized="false" id="_14488412050259">
+        <jpa:attributes>
+            <jpa:id name="iDGrade" attribute-type="Integer" visibile="true" id="_144884120503247">
+                <jpa:column name="IDGrade" unique="false" nullable="false" insertable="true" updatable="true" table="tablegrade"/>
+            </jpa:id>
+            <jpa:basic name="grade" optional="true" attribute-type="String" visibile="true" id="_144884120503248">
+                <jpa:column name="Grade" unique="false" nullable="true" insertable="true" updatable="true" table="tablegrade" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="tablegrade" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448845485784262" visibile="true" id="_1448845485799263"/>
+        </jpa:attributes>
+        <jpa:table name="tablegrade"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Conjoint" superclassId="_1448842111666" visibile="true" minimized="false" id="_144884120502511">
+        <jpa:attributes>
+            <jpa:basic name="fonctionConjoint" optional="true" attribute-type="String" visibile="true" id="_144884120503358">
+                <jpa:column name="FonctionConjoint" unique="false" nullable="true" insertable="true" updatable="true" table="tableconjoint" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="employeurConjoint" optional="true" attribute-type="String" visibile="true" id="_144884120503359">
+                <jpa:column name="EmployeurConjoint" unique="false" nullable="true" insertable="true" updatable="true" table="tableconjoint" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-one name="adherent" target-entity="Adherent" optional="true" mapped-by="conjoint" primaryKey="false" connected-entity-id="_144884120502514" connected-attribute-id="_1448842759681246" visibile="true" id="_1448842759692247"/>
+        </jpa:attributes>
+        <jpa:table name="tableconjoint"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Situation" visibile="true" minimized="false" id="_144884120502512">
+        <jpa:attributes>
+            <jpa:id name="iDSituation" attribute-type="Integer" visibile="true" id="_144884120503362">
+                <jpa:column name="IDSituation" unique="false" nullable="false" insertable="true" updatable="true" table="tablesituation"/>
+            </jpa:id>
+            <jpa:basic name="situation" optional="true" attribute-type="String" visibile="true" id="_144884120503363">
+                <jpa:column name="Situation" unique="false" nullable="true" insertable="true" updatable="true" table="tablesituation" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="tablesituation" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448844624171254" visibile="true" id="_1448844624180255"/>
+        </jpa:attributes>
+        <jpa:table name="tablesituation"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Typescolarite" visibile="true" minimized="false" id="_144884120502513">
+        <jpa:attributes>
+            <jpa:id name="iDTypeScolarite" attribute-type="Integer" visibile="true" id="_144884120503364">
+                <jpa:column name="IDTypeScolarite" unique="false" nullable="false" insertable="true" updatable="true" table="tabletypescolarite"/>
+            </jpa:id>
+            <jpa:basic name="typeScolarite" optional="true" attribute-type="String" visibile="true" id="_144884120503365">
+                <jpa:column name="TypeScolarite" unique="false" nullable="true" insertable="true" updatable="true" table="tabletypescolarite" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="scolarites" target-entity="Scolarite" mapped-by="tabletypescolarite" collection-type="java.util.List" connected-entity-id="_144884120502527" connected-attribute-id="_1448847666039271" visibile="true" id="_1448847666040272"/>
+        </jpa:attributes>
+        <jpa:table name="tabletypescolarite"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Adherent" superclassId="_1448842111666" visibile="true" minimized="false" id="_144884120502514">
+        <jpa:attributes>
+            <jpa:basic name="numDRPP" optional="true" attribute-type="String" visibile="true" id="_144884120503373">
+                <jpa:column name="NumDRPP" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numTelephone" optional="true" attribute-type="String" visibile="true" id="_144884120503375">
+                <jpa:column name="NumTelephone" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numPosteTelephonique" optional="true" attribute-type="String" visibile="true" id="_144884120503376">
+                <jpa:column name="NumPosteTelephonique" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numGSM" optional="true" attribute-type="String" visibile="true" id="_144884120503377">
+                <jpa:column name="NumGSM" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numGSMBis" optional="true" attribute-type="String" visibile="true" id="_144884120503378">
+                <jpa:column name="NumGSMBis" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="email" optional="true" attribute-type="String" visibile="true" id="_144884120503379">
+                <jpa:column name="Email" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="emailBis" optional="true" attribute-type="String" visibile="true" id="_144884120503380">
+                <jpa:column name="EmailBis" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="adresse" optional="true" attribute-type="String" visibile="true" id="_144884120503381">
+                <jpa:column name="Adresse" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numAffiliationCNOPS" optional="true" attribute-type="String" visibile="true" id="_144884120503382">
+                <jpa:column name="NumAffiliationCNOPS" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numImmatriculationCNOPS" optional="true" attribute-type="String" visibile="true" id="_144884120503383">
+                <jpa:column name="NumImmatriculationCNOPS" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numAffiliationCNSS" optional="true" attribute-type="String" visibile="true" id="_144884120503384">
+                <jpa:column name="NumAffiliationCNSS" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numImmatriculationCNSS" optional="true" attribute-type="String" visibile="true" id="_144884120503385">
+                <jpa:column name="NumImmatriculationCNSS" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="transportMinistere" optional="true" attribute-type="Integer" visibile="true" id="_144884120503386">
+                <jpa:column name="TransportMinistere" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent"/>
+            </jpa:basic>
+            <jpa:basic name="transportNavette" optional="true" attribute-type="Integer" visibile="true" id="_144884120503387">
+                <jpa:column name="TransportNavette" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent"/>
+            </jpa:basic>
+            <jpa:basic name="cantine" optional="true" attribute-type="Integer" visibile="true" id="_144884120503388">
+                <jpa:column name="Cantine" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent"/>
+            </jpa:basic>
+            <jpa:basic name="observations" optional="true" attribute-type="String" visibile="true" id="_144884120503389">
+                <jpa:column name="Observations" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="sessEnf" optional="true" attribute-type="String" visibile="true" id="_144884120503498">
+                <jpa:column name="sess_enf" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="numAdherent" optional="true" attribute-type="String" visibile="true" id="_1448841205034105">
+                <jpa:column name="NumAdherent" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="dateRappel" optional="true" attribute-type="String" visibile="true" id="_1448841205034106">
+                <jpa:column name="DateRappel" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="10"/>
+            </jpa:basic>
+            <jpa:basic name="rib" optional="true" attribute-type="String" visibile="true" id="_1448841205034107">
+                <jpa:column name="RIB" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="valider" optional="true" attribute-type="String" visibile="true" id="_1448841205034109">
+                <jpa:column name="Valider" unique="false" nullable="true" insertable="true" updatable="true" table="tableadherent" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="doti" attribute-type="String" visibile="true" id="_1448847948147273">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:many-to-one name="banque" target-entity="Banque" primaryKey="false" connected-entity-id="_144884120502523" connected-attribute-id="_1448843355327253" visibile="true" id="_1448843355319252">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tablesituation" target-entity="Situation" primaryKey="false" connected-entity-id="_144884120502512" connected-attribute-id="_1448844624180255" visibile="true" id="_1448844624171254">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tableposte" target-entity="Poste" primaryKey="false" connected-entity-id="_144884120502529" connected-attribute-id="_1448844817788257" visibile="true" id="_1448844817765256">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tablecategorie" target-entity="Categorie" primaryKey="false" connected-entity-id="_144884120502519" connected-attribute-id="_1448844895249259" visibile="true" id="_1448844895220258">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tablefonction" target-entity="Fonction" primaryKey="false" connected-entity-id="_14488412050034" connected-attribute-id="_1448845331460261" visibile="true" id="_1448845331449260">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tablegrade" target-entity="Grade" primaryKey="false" connected-entity-id="_14488412050259" connected-attribute-id="_1448845485799263" visibile="true" id="_1448845485784262">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tableville" target-entity="Ville" primaryKey="false" connected-entity-id="_144884120502517" connected-attribute-id="_1448846167747265" visibile="true" id="_1448846167731264">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="llieu" target-entity="Lieu" primaryKey="false" connected-entity-id="_144884120502532" connected-attribute-id="_1448846434363267" visibile="true" id="_1448846434352266">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="tableechelle" target-entity="Echelle" primaryKey="false" connected-entity-id="_144884120502531" connected-attribute-id="_1448846515944269" visibile="true" id="_1448846515928268">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="prestation" target-entity="Prestation" primaryKey="false" connected-entity-id="_144884120502518" connected-attribute-id="_1448911941811281" visibile="true" id="_1448911941792280">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="enfants" target-entity="Enfant" mapped-by="adherent" collection-type="java.util.Collection" connected-entity-id="_144884120502526" connected-attribute-id="_1448842820979248" visibile="true" id="_1448842820983249"/>
+            <jpa:one-to-one name="conjoint" target-entity="Conjoint" optional="true" primaryKey="false" connected-entity-id="_144884120502511" connected-attribute-id="_1448842759692247" visibile="true" id="_1448842759681246">
+                <jpa:join-table/>
+            </jpa:one-to-one>
+            <jpa:many-to-many name="tabletypeadhesions" target-entity="Typeadhesion" collection-type="java.util.List" connected-entity-id="_144884120502525" connected-attribute-id="_1448848539999275" visibile="true" id="_1448848539982274">
+                <jpa:join-table/>
+            </jpa:many-to-many>
+        </jpa:attributes>
+        <jpa:table name="tableadherent"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Cycle" visibile="true" minimized="false" id="_144884120502516">
+        <jpa:attributes>
+            <jpa:id name="iDCycle" attribute-type="Integer" visibile="true" id="_1448841205034113">
+                <jpa:column name="IDCycle" unique="false" nullable="false" insertable="true" updatable="true" table="tablecycle"/>
+            </jpa:id>
+            <jpa:basic name="cycle" optional="true" attribute-type="String" visibile="true" id="_1448841205034114">
+                <jpa:column name="Cycle" unique="false" nullable="true" insertable="true" updatable="true" table="tablecycle" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="enfants" target-entity="Enfant" mapped-by="cycle" collection-type="java.util.List" connected-entity-id="_144884120502526" connected-attribute-id="_1448926366882292" visibile="true" id="_1448926366899293"/>
+        </jpa:attributes>
+        <jpa:table name="tablecycle"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Ville" visibile="true" minimized="false" id="_144884120502517">
+        <jpa:attributes>
+            <jpa:id name="iDVille" attribute-type="Integer" visibile="true" id="_1448841205034115">
+                <jpa:column name="IDVille" unique="false" nullable="false" insertable="true" updatable="true" table="tableville"/>
+            </jpa:id>
+            <jpa:basic name="ville" optional="true" attribute-type="String" visibile="true" id="_1448841205034116">
+                <jpa:column name="Ville" unique="false" nullable="true" insertable="true" updatable="true" table="tableville" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="tableville" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448846167731264" visibile="true" id="_1448846167747265"/>
+        </jpa:attributes>
+        <jpa:table name="tableville"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Prestation" visibile="true" minimized="false" id="_144884120502518">
+        <jpa:attributes>
+            <jpa:id name="iDPrestation" attribute-type="Integer" visibile="true" id="_1448841205034117">
+                <jpa:column name="IDPrestation" unique="false" nullable="false" insertable="true" updatable="true" table="tableprestation"/>
+            </jpa:id>
+            <jpa:basic name="iDAnnee" optional="false" attribute-type="int" visibile="true" id="_1448841205034120">
+                <jpa:column name="IDAnnee" unique="false" nullable="false" insertable="true" updatable="true" table="tableprestation"/>
+            </jpa:basic>
+            <jpa:basic name="iDEchelle" optional="false" attribute-type="int" visibile="true" id="_1448841205034121">
+                <jpa:column name="IDEchelle" unique="false" nullable="false" insertable="true" updatable="true" table="tableprestation"/>
+            </jpa:basic>
+            <jpa:basic name="iDLieu" optional="false" attribute-type="int" visibile="true" id="_1448841205034122">
+                <jpa:column name="IDLieu" unique="false" nullable="false" insertable="true" updatable="true" table="tableprestation"/>
+            </jpa:basic>
+            <jpa:basic name="iDMontant" optional="false" attribute-type="int" visibile="true" id="_1448841205035123">
+                <jpa:column name="IDMontant" unique="false" nullable="false" insertable="true" updatable="true" table="tableprestation"/>
+            </jpa:basic>
+            <jpa:basic name="active" optional="false" attribute-type="int" visibile="true" id="_1448841205035124">
+                <jpa:column name="Active" unique="false" nullable="false" insertable="true" updatable="true" table="tableprestation"/>
+            </jpa:basic>
+            <jpa:basic name="dateCreation" optional="false" attribute-type="String" visibile="true" id="_1448841205035125">
+                <jpa:column name="DateCreation" unique="false" nullable="false" insertable="true" updatable="true" table="tableprestation" length="10"/>
+            </jpa:basic>
+            <jpa:basic name="dateMandatement" optional="true" attribute-type="String" visibile="true" id="_1448841205035126">
+                <jpa:column name="DateMandatement" unique="false" nullable="true" insertable="true" updatable="true" table="tableprestation" length="10"/>
+            </jpa:basic>
+            <jpa:many-to-one name="typedepense" target-entity="Typedepense" primaryKey="false" connected-entity-id="_14488412050247" connected-attribute-id="_1448917835050291" visibile="true" id="_1448917835049290">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="prestation" connected-entity-id="_144884120502514" connected-attribute-id="_1448911941792280" visibile="true" id="_1448911941811281"/>
+        </jpa:attributes>
+        <jpa:table name="tableprestation"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Categorie" visibile="true" minimized="false" id="_144884120502519">
+        <jpa:attributes>
+            <jpa:id name="iDCategorie" attribute-type="Integer" visibile="true" id="_1448841205035127">
+                <jpa:column name="IDCategorie" unique="false" nullable="false" insertable="true" updatable="true" table="tablecategorie"/>
+            </jpa:id>
+            <jpa:basic name="categorie" optional="true" attribute-type="String" visibile="true" id="_1448841205035128">
+                <jpa:column name="Categorie" unique="false" nullable="true" insertable="true" updatable="true" table="tablecategorie" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="maa" optional="true" attribute-type="Integer" visibile="true" id="_1448841205035129">
+                <jpa:column name="MAA" unique="false" nullable="true" insertable="true" updatable="true" table="tablecategorie"/>
+            </jpa:basic>
+            <jpa:basic name="mapfs" optional="true" attribute-type="Integer" visibile="true" id="_1448841205035130">
+                <jpa:column name="MAPFS" unique="false" nullable="true" insertable="true" updatable="true" table="tablecategorie"/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="tablecategorie" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448844895220258" visibile="true" id="_1448844895249259"/>
+            <jpa:many-to-many name="fonctions" target-entity="Fonction" mapped-by="categories" connected-entity-id="_14488412050034" connected-attribute-id="_144951054271746" visibile="true" id="_144951054272647"/>
+        </jpa:attributes>
+        <jpa:table name="tablecategorie"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Banque" visibile="true" minimized="false" id="_144884120502523">
+        <jpa:attributes>
+            <jpa:id name="iDBanque" attribute-type="Integer" visibile="true" id="_1448841205035147">
+                <jpa:column name="IDBanque" unique="false" nullable="false" insertable="true" updatable="true" table="tablebanque"/>
+            </jpa:id>
+            <jpa:basic name="banque" optional="false" attribute-type="String" visibile="true" id="_1448841205035148">
+                <jpa:column name="Banque" unique="false" nullable="false" insertable="true" updatable="true" table="tablebanque" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="banque" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448843355319252" visibile="true" id="_1448843355327253"/>
+        </jpa:attributes>
+        <jpa:table name="tablebanque"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Depense" visibile="true" minimized="false" id="_144884120502524">
+        <jpa:attributes>
+            <jpa:id name="iDDepense" attribute-type="Integer" visibile="true" id="_1448841205035149">
+                <jpa:column name="IDDepense" unique="false" nullable="false" insertable="true" updatable="true" table="tabledepense"/>
+            </jpa:id>
+            <jpa:basic name="montant" optional="false" attribute-type="double" visibile="true" id="_1448841205035151">
+                <jpa:column name="Montant" unique="false" nullable="false" insertable="true" updatable="true" table="tabledepense"/>
+            </jpa:basic>
+            <jpa:basic name="reference" optional="false" attribute-type="String" visibile="true" id="_1448841205035155">
+                <jpa:column name="Reference" unique="false" nullable="false" insertable="true" updatable="true" table="tabledepense" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="dateCreation" optional="false" attribute-type="String" visibile="true" id="_1448841205035156">
+                <jpa:column name="DateCreation" unique="false" nullable="false" insertable="true" updatable="true" table="tabledepense" length="10"/>
+            </jpa:basic>
+            <jpa:basic name="rib" optional="false" attribute-type="String" visibile="true" id="_1448841205035158">
+                <jpa:column name="RIB" unique="false" nullable="false" insertable="true" updatable="true" table="tabledepense" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="ok" optional="false" attribute-type="int" visibile="true" id="_1448841205035160">
+                <jpa:column name="Ok" unique="false" nullable="false" insertable="true" updatable="true" table="tabledepense"/>
+            </jpa:basic>
+            <jpa:basic name="emailEnvoye" optional="false" attribute-type="int" visibile="true" id="_1448841205035161">
+                <jpa:column name="EmailEnvoye" unique="false" nullable="false" insertable="true" updatable="true" table="tabledepense"/>
+            </jpa:basic>
+            <jpa:many-to-one name="typedepense" target-entity="Typedepense" primaryKey="false" connected-entity-id="_14488412050247" connected-attribute-id="_1448917803217289" visibile="true" id="_1448917803216288">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+        <jpa:table name="tabledepense"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Typeadhesion" visibile="true" minimized="false" id="_144884120502525">
+        <jpa:attributes>
+            <jpa:id name="iDTypeAdhesion" attribute-type="Integer" visibile="true" id="_1448841205035162">
+                <jpa:column name="IDTypeAdhesion" unique="false" nullable="false" insertable="true" updatable="true" table="tabletypeadhesion"/>
+            </jpa:id>
+            <jpa:basic name="typeAdhesion" optional="true" attribute-type="String" visibile="true" id="_1448841205035163">
+                <jpa:column name="TypeAdhesion" unique="false" nullable="true" insertable="true" updatable="true" table="tabletypeadhesion" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:many-to-many name="adherents" target-entity="Adherent" mapped-by="tabletypeadhesions" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448848539982274" visibile="true" id="_1448848539999275"/>
+        </jpa:attributes>
+        <jpa:table name="tabletypeadhesion"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Enfant" superclassId="_1448842111666" visibile="true" minimized="false" id="_144884120502526">
+        <jpa:attributes>
+            <jpa:basic name="niveauEtude" optional="true" attribute-type="String" visibile="true" id="_1448841205036170">
+                <jpa:column name="NiveauEtude" unique="false" nullable="true" insertable="true" updatable="true" table="tableenfant" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="fraisScolariteMensuelle" optional="true" attribute-type="Long" visibile="true" id="_1448841205036171">
+                <jpa:column name="FraisScolariteMensuelle" unique="false" nullable="true" insertable="true" updatable="true" table="tableenfant"/>
+            </jpa:basic>
+            <jpa:basic name="observations" optional="true" attribute-type="String" visibile="true" id="_1448841205036172">
+                <jpa:column name="Observations" unique="false" nullable="true" insertable="true" updatable="true" table="tableenfant" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="iDEtablissement" optional="true" attribute-type="Integer" visibile="true" id="_1448841205036177">
+                <jpa:column name="IDEtablissement" unique="false" nullable="true" insertable="true" updatable="true" table="tableenfant"/>
+            </jpa:basic>
+            <jpa:basic name="scolarise" optional="true" attribute-type="Integer" visibile="true" id="_1448841205036179">
+                <jpa:column name="Scolarise" unique="false" nullable="true" insertable="true" updatable="true" table="tableenfant"/>
+            </jpa:basic>
+            <jpa:many-to-one name="adherent" target-entity="Adherent" optional="true" primaryKey="false" connected-entity-id="_144884120502514" connected-attribute-id="_1448842820983249" visibile="true" id="_1448842820979248">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="scolarite" target-entity="Scolarite" primaryKey="false" connected-entity-id="_144884120502527" connected-attribute-id="_1448910771117279" visibile="true" id="_1448910771112278">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="cycle" target-entity="Cycle" optional="true" primaryKey="false" connected-entity-id="_144884120502516" connected-attribute-id="_1448926366899293" visibile="true" id="_1448926366882292">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+        </jpa:attributes>
+        <jpa:table name="tableenfant"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Scolarite" visibile="true" minimized="false" id="_144884120502527">
+        <jpa:attributes>
+            <jpa:id name="iDFScolarite" attribute-type="Integer" visibile="true" id="_1448841205036180">
+                <jpa:column name="IDFScolarite" unique="false" nullable="false" insertable="true" updatable="true" table="tablefscolarite"/>
+            </jpa:id>
+            <jpa:basic name="montant" optional="false" attribute-type="double" visibile="true" id="_1448841205036183">
+                <jpa:column name="Montant" unique="false" nullable="false" insertable="true" updatable="true" table="tablefscolarite"/>
+            </jpa:basic>
+            <jpa:basic name="dateDebut" optional="false" attribute-type="int" visibile="true" id="_1448841205036184">
+                <jpa:column name="IDPeriode" unique="false" nullable="false" insertable="true" updatable="true" table="tablefscolarite"/>
+            </jpa:basic>
+            <jpa:basic name="dateFin" optional="false" attribute-type="int" visibile="true" id="_1448841205036185">
+                <jpa:column name="IDAnnee" unique="false" nullable="false" insertable="true" updatable="true" table="tablefscolarite"/>
+            </jpa:basic>
+            <jpa:basic name="reference" optional="false" attribute-type="String" visibile="true" id="_1448841205036187">
+                <jpa:column name="Reference" unique="false" nullable="false" insertable="true" updatable="true" table="tablefscolarite" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="dateCreation" optional="false" attribute-type="String" visibile="true" id="_1448841205036188">
+                <jpa:column name="DateCreation" unique="false" nullable="false" insertable="true" updatable="true" table="tablefscolarite" length="10"/>
+            </jpa:basic>
+            <jpa:basic name="iDDepense" optional="true" attribute-type="Integer" visibile="true" id="_1448841205036189">
+                <jpa:column name="IDDepense" unique="false" nullable="true" insertable="true" updatable="true" table="tablefscolarite"/>
+            </jpa:basic>
+            <jpa:basic name="etablissement" attribute-type="String" visibile="true" id="_1448847632486270">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:many-to-one name="tabletypescolarite" target-entity="Typescolarite" primaryKey="false" connected-entity-id="_144884120502513" connected-attribute-id="_1448847666040272" visibile="true" id="_1448847666039271">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:many-to-one name="typedepense" target-entity="Typedepense" primaryKey="false" connected-entity-id="_14488412050247" connected-attribute-id="_1448927868404295" visibile="true" id="_1448927868401294">
+                <jpa:join-table/>
+            </jpa:many-to-one>
+            <jpa:one-to-many name="enfant" target-entity="Enfant" mapped-by="scolarite" connected-entity-id="_144884120502526" connected-attribute-id="_1448910771112278" visibile="true" id="_1448910771117279"/>
+        </jpa:attributes>
+        <jpa:table name="tablefscolarite"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Poste" visibile="true" minimized="false" id="_144884120502529">
+        <jpa:attributes>
+            <jpa:id name="iDPoste" attribute-type="Integer" visibile="true" id="_1448841205036192">
+                <jpa:column name="IDPoste" unique="false" nullable="false" insertable="true" updatable="true" table="tableposte"/>
+            </jpa:id>
+            <jpa:basic name="poste" optional="true" attribute-type="String" visibile="true" id="_1448841205036193">
+                <jpa:column name="poste" unique="false" nullable="true" insertable="true" updatable="true" table="tableposte" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="typePoste" optional="true" attribute-type="String" visibile="true" id="_1448841205036194">
+                <jpa:column name="TypePoste" unique="false" nullable="true" insertable="true" updatable="true" table="tableposte" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="tableposte" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448844817765256" visibile="true" id="_1448844817788257"/>
+        </jpa:attributes>
+        <jpa:table name="tableposte"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Echelle" visibile="true" minimized="false" id="_144884120502531">
+        <jpa:attributes>
+            <jpa:id name="iDEchelle" attribute-type="Integer" visibile="true" id="_1448841205036197">
+                <jpa:column name="IDEchelle" unique="false" nullable="false" insertable="true" updatable="true" table="tableechelle"/>
+            </jpa:id>
+            <jpa:basic name="echelle" optional="true" attribute-type="String" visibile="true" id="_1448841205036198">
+                <jpa:column name="Echelle" unique="false" nullable="true" insertable="true" updatable="true" table="tableechelle" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="iDCategorie" optional="true" attribute-type="Integer" visibile="true" id="_1448841205036199">
+                <jpa:column name="IDCategorie" unique="false" nullable="true" insertable="true" updatable="true" table="tableechelle"/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="tableechelle" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448846515928268" visibile="true" id="_1448846515944269"/>
+        </jpa:attributes>
+        <jpa:table name="tableechelle"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Lieu" visibile="true" minimized="false" id="_144884120502532">
+        <jpa:attributes>
+            <jpa:id name="iDLieu" attribute-type="Integer" visibile="true" id="_1448841205036200">
+                <jpa:column name="IDLieu" unique="false" nullable="false" insertable="true" updatable="true" table="tablelieu"/>
+            </jpa:id>
+            <jpa:basic name="lieu" optional="true" attribute-type="String" visibile="true" id="_1448841205036201">
+                <jpa:column name="Lieu" unique="false" nullable="true" insertable="true" updatable="true" table="tablelieu" length="2147483647"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:one-to-many name="adherents" target-entity="Adherent" mapped-by="llieu" collection-type="java.util.List" connected-entity-id="_144884120502514" connected-attribute-id="_1448846434352266" visibile="true" id="_1448846434363267"/>
+        </jpa:attributes>
+        <jpa:table name="tablelieu"/>
+    </jpa:entity>
+    <jpa:entity jaxb-root-element="false" static-metamodel="false" abstract="false" class="Personne" visibile="true" minimized="false" id="_1448842111666">
+        <jpa:attributes>
+            <jpa:id name="idPersonne" attribute-type="Long" visibile="true" id="_1448842266124236">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:id>
+            <jpa:basic name="nom" attribute-type="String" visibile="true" id="_1448842278050237">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="nomArabe" attribute-type="String" visibile="true" id="_1448842278402238">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="prenom" attribute-type="String" visibile="true" id="_1448842278763239">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="prenomArabe" attribute-type="String" visibile="true" id="_1448842279147240">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="photo" attribute-type="String" visibile="true" id="_1448842279515241">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="numCIN" attribute-type="String" visibile="true" id="_1448842280195242">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:basic>
+            <jpa:basic name="dateCreation" attribute-type="java.util.Date" visibile="true" id="_1448842380322243">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+                <jpa:temporal>DATE</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="dateNaissance" attribute-type="java.util.Date" visibile="true" id="_1448842381154244">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+                <jpa:temporal>DATE</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="sexe" attribute-type="String" visibile="true" id="_1448842433410245">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:diagram id="_14488412050002">
+        <plane elementRef="_14488412049971" id="_14488412050013_p">
+            <shape elementRef="_14488412050034" id="_14488412050034_gui">
+                <Bounds x="986.0" y="806.0" width="144.0" height="168.0"/>
+            </shape>
+            <shape elementRef="_14488412050247" id="_14488412050247_gui">
+                <Bounds x="1151.0" y="250.0" width="172.0" height="168.0"/>
+            </shape>
+            <shape elementRef="_14488412050259" id="_14488412050259_gui">
+                <Bounds x="-79.0" y="455.0" width="130.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_144884120502511" id="_144884120502511_gui">
+                <Bounds x="-44.0" y="305.0" width="154.0" height="113.0"/>
+            </shape>
+            <shape elementRef="_144884120502512" id="_144884120502512_gui">
+                <Bounds x="460.0" y="738.0" width="146.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_144884120502513" id="_144884120502513_gui">
+                <Bounds x="854.0" y="137.0" width="173.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_144884120502514" id="_144884120502514_gui">
+                <Bounds x="150.0" y="305.0" width="203.0" height="785.0"/>
+            </shape>
+            <shape elementRef="_144884120502516" id="_144884120502516_gui">
+                <Bounds x="460.0" y="77.0" width="128.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_144884120502517" id="_144884120502517_gui">
+                <Bounds x="-44.0" y="641.0" width="128.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_144884120502518" id="_144884120502518_gui">
+                <Bounds x="872.0" y="317.0" width="155.0" height="273.0"/>
+            </shape>
+            <shape elementRef="_144884120502519" id="_144884120502519_gui">
+                <Bounds x="665.0" y="714.0" width="151.0" height="189.0"/>
+            </shape>
+            <shape elementRef="_144884120502523" id="_144884120502523_gui">
+                <Bounds x="435.0" y="588.0" width="139.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_144884120502524" id="_144884120502524_gui">
+                <Bounds x="1056.0" y="527.0" width="146.0" height="231.0"/>
+            </shape>
+            <shape elementRef="_144884120502525" id="_144884120502525_gui">
+                <Bounds x="631.0" y="964.0" width="175.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_144884120502526" id="_144884120502526_gui">
+                <Bounds x="395.0" y="334.0" width="179.0" height="218.0"/>
+            </shape>
+            <shape elementRef="_144884120502527" id="_144884120502527_gui">
+                <Bounds x="631.0" y="7.0" width="153.0" height="294.0"/>
+            </shape>
+            <shape elementRef="_144884120502529" id="_144884120502529_gui">
+                <Bounds x="654.0" y="547.0" width="129.0" height="147.0"/>
+            </shape>
+            <shape elementRef="_144884120502531" id="_144884120502531_gui">
+                <Bounds x="669.0" y="380.0" width="137.0" height="147.0"/>
+            </shape>
+            <shape elementRef="_144884120502532" id="_144884120502532_gui">
+                <Bounds x="-65.0" y="792.0" width="128.0" height="126.0"/>
+            </shape>
+            <shape elementRef="_1448842111666" id="_1448842111666_gui">
+                <Bounds x="128.0" y="-18.0" width="151.0" height="260.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>

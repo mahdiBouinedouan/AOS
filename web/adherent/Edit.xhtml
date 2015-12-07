@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AdherentEditDlg" widgetVar="AdherentEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAdherentTitle}">
+            <h:form id="AdherentEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{adherentController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_tablefonction}" for="tablefonction" />
+                        <p:selectOneMenu id="tablefonction" value="#{adherentController.selected.tablefonction}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{fonctionController.itemsAvailableSelectOne}"
+                                           var="tablefonctionItem"
+                                           itemValue="#{tablefonctionItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numGSM}" for="numGSM" />
+                        <p:inputTextarea rows="4" cols="30" id="numGSM" value="#{adherentController.selected.numGSM}" title="#{bundle.EditAdherentTitle_numGSM}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_sessEnf}" for="sessEnf" />
+                        <p:inputTextarea rows="4" cols="30" id="sessEnf" value="#{adherentController.selected.sessEnf}" title="#{bundle.EditAdherentTitle_sessEnf}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numGSMBis}" for="numGSMBis" />
+                        <p:inputTextarea rows="4" cols="30" id="numGSMBis" value="#{adherentController.selected.numGSMBis}" title="#{bundle.EditAdherentTitle_numGSMBis}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_rib}" for="rib" />
+                        <p:inputTextarea rows="4" cols="30" id="rib" value="#{adherentController.selected.rib}" title="#{bundle.EditAdherentTitle_rib}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_tablegrade}" for="tablegrade" />
+                        <p:selectOneMenu id="tablegrade" value="#{adherentController.selected.tablegrade}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{gradeController.itemsAvailableSelectOne}"
+                                           var="tablegradeItem"
+                                           itemValue="#{tablegradeItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_tablesituation}" for="tablesituation" />
+                        <p:selectOneMenu id="tablesituation" value="#{adherentController.selected.tablesituation}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{situationController.itemsAvailableSelectOne}"
+                                           var="tablesituationItem"
+                                           itemValue="#{tablesituationItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_transportMinistere}" for="transportMinistere" />
+                        <p:inputText id="transportMinistere" value="#{adherentController.selected.transportMinistere}" title="#{bundle.EditAdherentTitle_transportMinistere}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_emailBis}" for="emailBis" />
+                        <p:inputTextarea rows="4" cols="30" id="emailBis" value="#{adherentController.selected.emailBis}" title="#{bundle.EditAdherentTitle_emailBis}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_dateRappel}" for="dateRappel" />
+                        <p:inputText id="dateRappel" value="#{adherentController.selected.dateRappel}" title="#{bundle.EditAdherentTitle_dateRappel}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_observations}" for="observations" />
+                        <p:inputTextarea rows="4" cols="30" id="observations" value="#{adherentController.selected.observations}" title="#{bundle.EditAdherentTitle_observations}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_banque}" for="banque" />
+                        <p:selectOneMenu id="banque" value="#{adherentController.selected.banque}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{banqueController.itemsAvailableSelectOne}"
+                                           var="banqueItem"
+                                           itemValue="#{banqueItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_tableville}" for="tableville" />
+                        <p:selectOneMenu id="tableville" value="#{adherentController.selected.tableville}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{villeController.itemsAvailableSelectOne}"
+                                           var="tablevilleItem"
+                                           itemValue="#{tablevilleItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numImmatriculationCNOPS}" for="numImmatriculationCNOPS" />
+                        <p:inputTextarea rows="4" cols="30" id="numImmatriculationCNOPS" value="#{adherentController.selected.numImmatriculationCNOPS}" title="#{bundle.EditAdherentTitle_numImmatriculationCNOPS}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_tablecategorie}" for="tablecategorie" />
+                        <p:selectOneMenu id="tablecategorie" value="#{adherentController.selected.tablecategorie}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{categorieController.itemsAvailableSelectOne}"
+                                           var="tablecategorieItem"
+                                           itemValue="#{tablecategorieItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numTelephone}" for="numTelephone" />
+                        <p:inputTextarea rows="4" cols="30" id="numTelephone" value="#{adherentController.selected.numTelephone}" title="#{bundle.EditAdherentTitle_numTelephone}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_email}" for="email" />
+                        <p:inputTextarea rows="4" cols="30" id="email" value="#{adherentController.selected.email}" title="#{bundle.EditAdherentTitle_email}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numDRPP}" for="numDRPP" />
+                        <p:inputTextarea rows="4" cols="30" id="numDRPP" value="#{adherentController.selected.numDRPP}" title="#{bundle.EditAdherentTitle_numDRPP}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_valider}" for="valider" />
+                        <p:inputTextarea rows="4" cols="30" id="valider" value="#{adherentController.selected.valider}" title="#{bundle.EditAdherentTitle_valider}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numImmatriculationCNSS}" for="numImmatriculationCNSS" />
+                        <p:inputTextarea rows="4" cols="30" id="numImmatriculationCNSS" value="#{adherentController.selected.numImmatriculationCNSS}" title="#{bundle.EditAdherentTitle_numImmatriculationCNSS}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numAffiliationCNOPS}" for="numAffiliationCNOPS" />
+                        <p:inputTextarea rows="4" cols="30" id="numAffiliationCNOPS" value="#{adherentController.selected.numAffiliationCNOPS}" title="#{bundle.EditAdherentTitle_numAffiliationCNOPS}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numPosteTelephonique}" for="numPosteTelephonique" />
+                        <p:inputTextarea rows="4" cols="30" id="numPosteTelephonique" value="#{adherentController.selected.numPosteTelephonique}" title="#{bundle.EditAdherentTitle_numPosteTelephonique}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_transportNavette}" for="transportNavette" />
+                        <p:inputText id="transportNavette" value="#{adherentController.selected.transportNavette}" title="#{bundle.EditAdherentTitle_transportNavette}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_prestation}" for="prestation" />
+                        <p:selectOneMenu id="prestation" value="#{adherentController.selected.prestation}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{prestationController.itemsAvailableSelectOne}"
+                                           var="prestationItem"
+                                           itemValue="#{prestationItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_conjoint}" for="conjoint" />
+                        <p:selectOneMenu id="conjoint" value="#{adherentController.selected.conjoint}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{conjointController.itemsAvailableSelectOne}"
+                                           var="conjointItem"
+                                           itemValue="#{conjointItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_cantine}" for="cantine" />
+                        <p:inputText id="cantine" value="#{adherentController.selected.cantine}" title="#{bundle.EditAdherentTitle_cantine}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numAdherent}" for="numAdherent" />
+                        <p:inputTextarea rows="4" cols="30" id="numAdherent" value="#{adherentController.selected.numAdherent}" title="#{bundle.EditAdherentTitle_numAdherent}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_doti}" for="doti" />
+                        <p:inputText id="doti" value="#{adherentController.selected.doti}" title="#{bundle.EditAdherentTitle_doti}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_tableposte}" for="tableposte" />
+                        <p:selectOneMenu id="tableposte" value="#{adherentController.selected.tableposte}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{posteController.itemsAvailableSelectOne}"
+                                           var="tableposteItem"
+                                           itemValue="#{tableposteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_adresse}" for="adresse" />
+                        <p:inputTextarea rows="4" cols="30" id="adresse" value="#{adherentController.selected.adresse}" title="#{bundle.EditAdherentTitle_adresse}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_tableechelle}" for="tableechelle" />
+                        <p:selectOneMenu id="tableechelle" value="#{adherentController.selected.tableechelle}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{echelleController.itemsAvailableSelectOne}"
+                                           var="tableechelleItem"
+                                           itemValue="#{tableechelleItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numAffiliationCNSS}" for="numAffiliationCNSS" />
+                        <p:inputTextarea rows="4" cols="30" id="numAffiliationCNSS" value="#{adherentController.selected.numAffiliationCNSS}" title="#{bundle.EditAdherentTitle_numAffiliationCNSS}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_llieu}" for="llieu" />
+                        <p:selectOneMenu id="llieu" value="#{adherentController.selected.llieu}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{llieuController.itemsAvailableSelectOne}"
+                                           var="llieuItem"
+                                           itemValue="#{llieuItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_dateCreation}" for="dateCreation" />
+                        <p:calendar id="dateCreation" pattern="MM/dd/yyyy" value="#{adherentController.selected.dateCreation}" title="#{bundle.EditAdherentTitle_dateCreation}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_dateNaissance}" for="dateNaissance" />
+                        <p:calendar id="dateNaissance" pattern="MM/dd/yyyy" value="#{adherentController.selected.dateNaissance}" title="#{bundle.EditAdherentTitle_dateNaissance}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_idPersonne}" for="idPersonne" />
+                        <p:inputText id="idPersonne" value="#{adherentController.selected.idPersonne}" title="#{bundle.EditAdherentTitle_idPersonne}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_nomArabe}" for="nomArabe" />
+                        <p:inputText id="nomArabe" value="#{adherentController.selected.nomArabe}" title="#{bundle.EditAdherentTitle_nomArabe}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_photo}" for="photo" />
+                        <p:inputText id="photo" value="#{adherentController.selected.photo}" title="#{bundle.EditAdherentTitle_photo}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_prenomArabe}" for="prenomArabe" />
+                        <p:inputText id="prenomArabe" value="#{adherentController.selected.prenomArabe}" title="#{bundle.EditAdherentTitle_prenomArabe}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_numCIN}" for="numCIN" />
+                        <p:inputText id="numCIN" value="#{adherentController.selected.numCIN}" title="#{bundle.EditAdherentTitle_numCIN}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_sexe}" for="sexe" />
+                        <p:inputText id="sexe" value="#{adherentController.selected.sexe}" title="#{bundle.EditAdherentTitle_sexe}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{adherentController.selected.nom}" title="#{bundle.EditAdherentTitle_nom}" />
+                        <p:outputLabel value="#{bundle.EditAdherentLabel_prenom}" for="prenom" />
+                        <p:inputText id="prenom" value="#{adherentController.selected.prenom}" title="#{bundle.EditAdherentTitle_prenom}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{adherentController.update}" value="#{bundle.Save}" update="display,:AdherentListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AdherentEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AdherentEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

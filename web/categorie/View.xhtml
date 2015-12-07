@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CategorieViewDlg" widgetVar="CategorieViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewCategorieTitle}">
+            <h:form id="CategorieViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{categorieController.selected != null}">
+                        <h:outputText value="#{bundle.ViewCategorieLabel_categorie}"/>
+                        <h:outputText value="#{categorieController.selected.categorie}" title="#{bundle.ViewCategorieTitle_categorie}"/>
+                        <h:outputText value="#{bundle.ViewCategorieLabel_mapfs}"/>
+                        <h:outputText value="#{categorieController.selected.mapfs}" title="#{bundle.ViewCategorieTitle_mapfs}"/>
+                        <h:outputText value="#{bundle.ViewCategorieLabel_IDCategorie}"/>
+                        <h:outputText value="#{categorieController.selected.IDCategorie}" title="#{bundle.ViewCategorieTitle_IDCategorie}"/>
+                        <h:outputText value="#{bundle.ViewCategorieLabel_maa}"/>
+                        <h:outputText value="#{categorieController.selected.maa}" title="#{bundle.ViewCategorieTitle_maa}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="CategorieViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

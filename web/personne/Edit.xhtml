@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PersonneEditDlg" widgetVar="PersonneEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPersonneTitle}">
+            <h:form id="PersonneEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{personneController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_dateCreation}" for="dateCreation" />
+                        <p:calendar id="dateCreation" pattern="MM/dd/yyyy" value="#{personneController.selected.dateCreation}" title="#{bundle.EditPersonneTitle_dateCreation}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_dateNaissance}" for="dateNaissance" />
+                        <p:calendar id="dateNaissance" pattern="MM/dd/yyyy" value="#{personneController.selected.dateNaissance}" title="#{bundle.EditPersonneTitle_dateNaissance}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_idPersonne}" for="idPersonne" />
+                        <p:inputText id="idPersonne" value="#{personneController.selected.idPersonne}" title="#{bundle.EditPersonneTitle_idPersonne}" />
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_nomArabe}" for="nomArabe" />
+                        <p:inputText id="nomArabe" value="#{personneController.selected.nomArabe}" title="#{bundle.EditPersonneTitle_nomArabe}" />
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_photo}" for="photo" />
+                        <p:inputText id="photo" value="#{personneController.selected.photo}" title="#{bundle.EditPersonneTitle_photo}" />
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_prenomArabe}" for="prenomArabe" />
+                        <p:inputText id="prenomArabe" value="#{personneController.selected.prenomArabe}" title="#{bundle.EditPersonneTitle_prenomArabe}" />
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_numCIN}" for="numCIN" />
+                        <p:inputText id="numCIN" value="#{personneController.selected.numCIN}" title="#{bundle.EditPersonneTitle_numCIN}" />
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_sexe}" for="sexe" />
+                        <p:inputText id="sexe" value="#{personneController.selected.sexe}" title="#{bundle.EditPersonneTitle_sexe}" />
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_nom}" for="nom" />
+                        <p:inputText id="nom" value="#{personneController.selected.nom}" title="#{bundle.EditPersonneTitle_nom}" />
+                        <p:outputLabel value="#{bundle.EditPersonneLabel_prenom}" for="prenom" />
+                        <p:inputText id="prenom" value="#{personneController.selected.prenom}" title="#{bundle.EditPersonneTitle_prenom}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{personneController.update}" value="#{bundle.Save}" update="display,:PersonneListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PersonneEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PersonneEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

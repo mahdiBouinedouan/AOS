@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DepenseViewDlg" widgetVar="DepenseViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewDepenseTitle}">
+            <h:form id="DepenseViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{depenseController.selected != null}">
+                        <h:outputText value="#{bundle.ViewDepenseLabel_reference}"/>
+                        <h:outputText value="#{depenseController.selected.reference}" title="#{bundle.ViewDepenseTitle_reference}"/>
+                        <h:outputText value="#{bundle.ViewDepenseLabel_typedepense}"/>
+                        <h:outputText value="#{depenseController.selected.typedepense}" title="#{bundle.ViewDepenseTitle_typedepense}"/>
+                        <h:outputText value="#{bundle.ViewDepenseLabel_dateCreation}"/>
+                        <h:outputText value="#{depenseController.selected.dateCreation}" title="#{bundle.ViewDepenseTitle_dateCreation}"/>
+                        <h:outputText value="#{bundle.ViewDepenseLabel_IDDepense}"/>
+                        <h:outputText value="#{depenseController.selected.IDDepense}" title="#{bundle.ViewDepenseTitle_IDDepense}"/>
+                        <h:outputText value="#{bundle.ViewDepenseLabel_emailEnvoye}"/>
+                        <h:outputText value="#{depenseController.selected.emailEnvoye}" title="#{bundle.ViewDepenseTitle_emailEnvoye}"/>
+                        <h:outputText value="#{bundle.ViewDepenseLabel_montant}"/>
+                        <h:outputText value="#{depenseController.selected.montant}" title="#{bundle.ViewDepenseTitle_montant}"/>
+                        <h:outputText value="#{bundle.ViewDepenseLabel_rib}"/>
+                        <h:outputText value="#{depenseController.selected.rib}" title="#{bundle.ViewDepenseTitle_rib}"/>
+                        <h:outputText value="#{bundle.ViewDepenseLabel_ok}"/>
+                        <h:outputText value="#{depenseController.selected.ok}" title="#{bundle.ViewDepenseTitle_ok}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="DepenseViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
